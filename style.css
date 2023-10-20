@@ -1,0 +1,39 @@
+body {
+    font-family: Arial,sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    background-color: #3498db;
+    color: #fff;
+    padding: 20px;
+}
+img {
+    max-width: 100px;
+}
+
+.weather.info {
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: #f3e9e9;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.weather.info p {
+    margin: 10px;
+    font-size: 18px;
+}
+
+.weather.info span {
+    font-weight: bold;
+    color: #0077CC;
+}
+

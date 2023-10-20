@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Site</title>
+    <link rel="stylesheet"
+    href="style.css">
+</head>
+<body>
+    <h1>This is the weather page!
+
+    </h1>
+    <img src="https://cdn-icons-png.flaticon.com/128/1809/1809664.png" alt="logo"/>
+<div class="weather info">
+    <p>City: <span id="city">loading...</span></p>
+    <p>temperature: <span id="temperature">loading...
+    </span> °C</p>
+    <p>windspeed: <span id="windspeed">loading...
+    </span> M/C</p>
+    <p>weather-condition: <span id="weather-condition">loading...
+    </span></p>
+</div> 
+     <script>
+        async function getWeather() {
+            const response = await fetch("https://get.geojs.io/v1/ip/geo.json");
+            const data = await response.json();
+            const { latitude, longitude, city} = data;
+            const weatherRes = await  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);
+            const weatherData = await weatherRes.json();
+            const {current_weather } = weatherData;
+            const {temperature, windspeed, weathecode } = current_weather; 
+            document.getElementById("city").textContent = city;
+            document.getElementById("temperature").textContent = temperature;
+            document.getElementById("windspeed").textContent = windspeed;
+            document.getElementById("weather-condition").textContent = weathercode;
+        }
+        getWeather();
+     </script>
+   </body>
+</html>
+
